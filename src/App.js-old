@@ -1,0 +1,40 @@
+import React, { useState, useEffect } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+
+import { listCustodys } from './graphql/queries';
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+
+const [custodies, setCustodies] = useState([]);
+
+const fetchCustodies = async () => {
+    try {
+        const custodyData = await API.graphql(graphqlOperation(listCustodys));
+        const custodyList = custodayData.data.listCustodys.items;
+        console.log('custody list', custodyList);
+        setCustodies(custodyList);
+    } catch (error) {
+        console.log('error on fetching custodies', error);
+    }
+};
+
+useEffect(() => {
+    fetchCustodies();
+}, []);
+
+function App() {
+  return (
+    <div className="App">
+      <header>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>We now have Auth!</h1>
+      </header>
+      <AmplifySignOut />
+    </div>
+  );
+}
+
+export default withAuthenticator(App);
+
+
