@@ -20,6 +20,29 @@ export const syncAgencies = /* GraphQL */ `
         abbreviation
         emailDomain
         type
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        officers {
+          items {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         _version
         _deleted
@@ -46,6 +69,40 @@ export const getAgency = /* GraphQL */ `
         createdAt
       }
       officers {
+        items {
+          id
+          agency {
+            id
+            name
+            abbreviation
+            emailDomain
+            type
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          username
+          firstName
+          lastName
+          badgeNumber
+          deviceToken
+          custodies {
+            nextToken
+            startedAt
+          }
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -70,6 +127,29 @@ export const listAgencys = /* GraphQL */ `
         abbreviation
         emailDomain
         type
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        officers {
+          items {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         _version
         _deleted
@@ -96,11 +176,59 @@ export const syncOfficers = /* GraphQL */ `
     ) {
       items {
         id
+        agency {
+          id
+          name
+          abbreviation
+          emailDomain
+          type
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          officers {
+            nextToken
+            startedAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         username
         firstName
         lastName
         badgeNumber
         deviceToken
+        custodies {
+          items {
+            id
+            age
+            gender
+            height
+            weight
+            initialCooperationLevel
+            currentAgencyId
+            currentOfficerId
+            status
+            active
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        responses {
+          id
+          type
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -122,6 +250,29 @@ export const getOfficer = /* GraphQL */ `
         abbreviation
         emailDomain
         type
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        officers {
+          items {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         _version
         _deleted
@@ -134,6 +285,72 @@ export const getOfficer = /* GraphQL */ `
       badgeNumber
       deviceToken
       custodies {
+        items {
+          id
+          age
+          gender
+          height
+          weight
+          initialCooperationLevel
+          currentAgencyId
+          currentOfficerId
+          officer {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          status
+          active
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          states {
+            priority
+            type
+            title
+            message
+            instructions
+            iconName
+            createdAt
+          }
+          events {
+            type
+            createdAt
+          }
+          sensors {
+            make
+            model
+            deviceId
+            signalStrength
+            batteryLevel
+            currentHeartRate
+            state
+            createdAt
+          }
+          locations {
+            type
+            description
+            latitude
+            longitude
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -159,11 +376,59 @@ export const listOfficers = /* GraphQL */ `
     listOfficers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        agency {
+          id
+          name
+          abbreviation
+          emailDomain
+          type
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          officers {
+            nextToken
+            startedAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         username
         firstName
         lastName
         badgeNumber
         deviceToken
+        custodies {
+          items {
+            id
+            age
+            gender
+            height
+            weight
+            initialCooperationLevel
+            currentAgencyId
+            currentOfficerId
+            status
+            active
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        responses {
+          id
+          type
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -197,8 +462,82 @@ export const syncCustodies = /* GraphQL */ `
         initialCooperationLevel
         currentAgencyId
         currentOfficerId
+        officer {
+          id
+          agency {
+            id
+            name
+            abbreviation
+            emailDomain
+            type
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          username
+          firstName
+          lastName
+          badgeNumber
+          deviceToken
+          custodies {
+            nextToken
+            startedAt
+          }
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         status
         active
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        states {
+          priority
+          type
+          title
+          message
+          instructions
+          iconName
+          createdAt
+        }
+        events {
+          type
+          notifications {
+            type
+            createdAt
+          }
+          createdAt
+        }
+        sensors {
+          make
+          model
+          deviceId
+          signalStrength
+          batteryLevel
+          currentHeartRate
+          state
+          createdAt
+        }
+        locations {
+          type
+          description
+          latitude
+          longitude
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -223,11 +562,59 @@ export const getCustody = /* GraphQL */ `
       currentOfficerId
       officer {
         id
+        agency {
+          id
+          name
+          abbreviation
+          emailDomain
+          type
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          officers {
+            nextToken
+            startedAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         username
         firstName
         lastName
         badgeNumber
         deviceToken
+        custodies {
+          items {
+            id
+            age
+            gender
+            height
+            weight
+            initialCooperationLevel
+            currentAgencyId
+            currentOfficerId
+            status
+            active
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        responses {
+          id
+          type
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -253,6 +640,15 @@ export const getCustody = /* GraphQL */ `
       }
       events {
         type
+        notifications {
+          type
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+        }
         createdAt
       }
       sensors {
@@ -296,8 +692,82 @@ export const listCustodys = /* GraphQL */ `
         initialCooperationLevel
         currentAgencyId
         currentOfficerId
+        officer {
+          id
+          agency {
+            id
+            name
+            abbreviation
+            emailDomain
+            type
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          username
+          firstName
+          lastName
+          badgeNumber
+          deviceToken
+          custodies {
+            nextToken
+            startedAt
+          }
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         status
         active
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        states {
+          priority
+          type
+          title
+          message
+          instructions
+          iconName
+          createdAt
+        }
+        events {
+          type
+          notifications {
+            type
+            createdAt
+          }
+          createdAt
+        }
+        sensors {
+          make
+          model
+          deviceId
+          signalStrength
+          batteryLevel
+          currentHeartRate
+          state
+          createdAt
+        }
+        locations {
+          type
+          description
+          latitude
+          longitude
+          createdAt
+        }
         createdAt
         _version
         _deleted

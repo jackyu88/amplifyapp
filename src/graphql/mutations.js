@@ -19,6 +19,40 @@ export const createAgency = /* GraphQL */ `
         createdAt
       }
       officers {
+        items {
+          id
+          agency {
+            id
+            name
+            abbreviation
+            emailDomain
+            type
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          username
+          firstName
+          lastName
+          badgeNumber
+          deviceToken
+          custodies {
+            nextToken
+            startedAt
+          }
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -48,6 +82,40 @@ export const updateAgency = /* GraphQL */ `
         createdAt
       }
       officers {
+        items {
+          id
+          agency {
+            id
+            name
+            abbreviation
+            emailDomain
+            type
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          username
+          firstName
+          lastName
+          badgeNumber
+          deviceToken
+          custodies {
+            nextToken
+            startedAt
+          }
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -77,6 +145,40 @@ export const deleteAgency = /* GraphQL */ `
         createdAt
       }
       officers {
+        items {
+          id
+          agency {
+            id
+            name
+            abbreviation
+            emailDomain
+            type
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          username
+          firstName
+          lastName
+          badgeNumber
+          deviceToken
+          custodies {
+            nextToken
+            startedAt
+          }
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -101,6 +203,29 @@ export const createOfficer = /* GraphQL */ `
         abbreviation
         emailDomain
         type
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        officers {
+          items {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         _version
         _deleted
@@ -113,6 +238,72 @@ export const createOfficer = /* GraphQL */ `
       badgeNumber
       deviceToken
       custodies {
+        items {
+          id
+          age
+          gender
+          height
+          weight
+          initialCooperationLevel
+          currentAgencyId
+          currentOfficerId
+          officer {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          status
+          active
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          states {
+            priority
+            type
+            title
+            message
+            instructions
+            iconName
+            createdAt
+          }
+          events {
+            type
+            createdAt
+          }
+          sensors {
+            make
+            model
+            deviceId
+            signalStrength
+            batteryLevel
+            currentHeartRate
+            state
+            createdAt
+          }
+          locations {
+            type
+            description
+            latitude
+            longitude
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -142,6 +333,29 @@ export const updateOfficer = /* GraphQL */ `
         abbreviation
         emailDomain
         type
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        officers {
+          items {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         _version
         _deleted
@@ -154,6 +368,72 @@ export const updateOfficer = /* GraphQL */ `
       badgeNumber
       deviceToken
       custodies {
+        items {
+          id
+          age
+          gender
+          height
+          weight
+          initialCooperationLevel
+          currentAgencyId
+          currentOfficerId
+          officer {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          status
+          active
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          states {
+            priority
+            type
+            title
+            message
+            instructions
+            iconName
+            createdAt
+          }
+          events {
+            type
+            createdAt
+          }
+          sensors {
+            make
+            model
+            deviceId
+            signalStrength
+            batteryLevel
+            currentHeartRate
+            state
+            createdAt
+          }
+          locations {
+            type
+            description
+            latitude
+            longitude
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -183,6 +463,29 @@ export const deleteOfficer = /* GraphQL */ `
         abbreviation
         emailDomain
         type
+        media {
+          type
+          name
+          url
+          createdAt
+        }
+        officers {
+          items {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         _version
         _deleted
@@ -195,6 +498,72 @@ export const deleteOfficer = /* GraphQL */ `
       badgeNumber
       deviceToken
       custodies {
+        items {
+          id
+          age
+          gender
+          height
+          weight
+          initialCooperationLevel
+          currentAgencyId
+          currentOfficerId
+          officer {
+            id
+            username
+            firstName
+            lastName
+            badgeNumber
+            deviceToken
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          status
+          active
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          states {
+            priority
+            type
+            title
+            message
+            instructions
+            iconName
+            createdAt
+          }
+          events {
+            type
+            createdAt
+          }
+          sensors {
+            make
+            model
+            deviceId
+            signalStrength
+            batteryLevel
+            currentHeartRate
+            state
+            createdAt
+          }
+          locations {
+            type
+            description
+            latitude
+            longitude
+            createdAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         nextToken
         startedAt
       }
@@ -227,11 +596,59 @@ export const createCustody = /* GraphQL */ `
       currentOfficerId
       officer {
         id
+        agency {
+          id
+          name
+          abbreviation
+          emailDomain
+          type
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          officers {
+            nextToken
+            startedAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         username
         firstName
         lastName
         badgeNumber
         deviceToken
+        custodies {
+          items {
+            id
+            age
+            gender
+            height
+            weight
+            initialCooperationLevel
+            currentAgencyId
+            currentOfficerId
+            status
+            active
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        responses {
+          id
+          type
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -257,6 +674,15 @@ export const createCustody = /* GraphQL */ `
       }
       events {
         type
+        notifications {
+          type
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+        }
         createdAt
       }
       sensors {
@@ -300,11 +726,59 @@ export const updateCustody = /* GraphQL */ `
       currentOfficerId
       officer {
         id
+        agency {
+          id
+          name
+          abbreviation
+          emailDomain
+          type
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          officers {
+            nextToken
+            startedAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         username
         firstName
         lastName
         badgeNumber
         deviceToken
+        custodies {
+          items {
+            id
+            age
+            gender
+            height
+            weight
+            initialCooperationLevel
+            currentAgencyId
+            currentOfficerId
+            status
+            active
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        responses {
+          id
+          type
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -330,6 +804,15 @@ export const updateCustody = /* GraphQL */ `
       }
       events {
         type
+        notifications {
+          type
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+        }
         createdAt
       }
       sensors {
@@ -373,11 +856,59 @@ export const deleteCustody = /* GraphQL */ `
       currentOfficerId
       officer {
         id
+        agency {
+          id
+          name
+          abbreviation
+          emailDomain
+          type
+          media {
+            type
+            name
+            url
+            createdAt
+          }
+          officers {
+            nextToken
+            startedAt
+          }
+          createdAt
+          _version
+          _deleted
+          _lastChangedAt
+          updatedAt
+        }
         username
         firstName
         lastName
         badgeNumber
         deviceToken
+        custodies {
+          items {
+            id
+            age
+            gender
+            height
+            weight
+            initialCooperationLevel
+            currentAgencyId
+            currentOfficerId
+            status
+            active
+            createdAt
+            _version
+            _deleted
+            _lastChangedAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        responses {
+          id
+          type
+          createdAt
+        }
         createdAt
         _version
         _deleted
@@ -403,6 +934,15 @@ export const deleteCustody = /* GraphQL */ `
       }
       events {
         type
+        notifications {
+          type
+          responses {
+            id
+            type
+            createdAt
+          }
+          createdAt
+        }
         createdAt
       }
       sensors {
