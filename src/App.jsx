@@ -12,22 +12,27 @@ import { Paper, IconButton } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-
-
-
-
 function App() {
 
 const [custodies, setCustodies] = useState([]);
 
+const [time, setTime] = useState(new Date())
 
-
-
-
-
+    
 
 
 useEffect(() => {
+
+    var last = (new Date()).getTime();
+
+    setInterval(function(){
+        var current = (new Date()).getTime();
+        if (current-last > 3000) {
+            console.log('power was suspended');
+        }
+        last = current;
+
+    }, 1000);
 
   const customonUpdateCustody = /* GraphQL */ `
   subscription OnUpdateCustody {
@@ -50,16 +55,19 @@ useEffect(() => {
     } catch (error) {
         console.log('error on fetching custodies', error);
     }
-};
+  };
 
-
-
-const subscribeCustodies = async () => {
+  const subscribeCustodies = async () => {
     try {
       const subscription = await API.graphql(graphqlOperation(customonUpdateCustody)).subscribe({
-      next: data => { console.log (data.value.data);
+      next: data => { console.log ('subscribing',data.value.data);
       fetchCustodies();
-      }
+      },
+      error: err => {
+         console.log('error in subscription', err);
+         //this.state.subscription.unsubscribe(); //just for safe side
+         //subscribeCustodies(); //reconnect to subscription - endless loop, DO NOT DO
+}
       });
       return () => subscription.unsubscribe()
     } catch (error) {
@@ -67,11 +75,25 @@ const subscribeCustodies = async () => {
     }
 
   };
+
+  const handleConnectionChange = () => {
+      const condition = navigator.onLine ? "online" : "offline";
+      console.log(condition);
+      if (condition === "online") {
+        subscribeCustodies();
+      }
+    };
+
+    window.addEventListener("online", handleConnectionChange);
+    window.addEventListener("offline", handleConnectionChange);
+
   const onPageRendered = async () => {
     fetchCustodies();
     subscribeCustodies();
-};
+  };
+    
     onPageRendered();
+    
 }, []);
 
 
@@ -106,8 +128,6 @@ const subscribeCustodies = async () => {
         );
     })}
 </div>
-
-
 
       </header>
       <AmplifySignOut />

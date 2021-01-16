@@ -41,6 +41,6 @@
     ]
   },
   "resolutions": {
-      "react-dev-utils": "^10.2.1"
+    "react-dev-utils": "^10.2.1"
   }
 }
