@@ -27,6 +27,7 @@ useEffect(() => {
         var current = (new Date()).getTime();
         if (current - last > 5000) {
             console.log('power was suspended');
+            window.location.reload(false);
         }
         //console.log(current - last)
         last = current;
@@ -81,7 +82,7 @@ useEffect(() => {
       const condition = navigator.onLine ? "online" : "offline";
       console.log(condition);
       if (condition === "online") {
-        subscribeCustodies();
+        window.location.reload(false);
       }
     };
 
