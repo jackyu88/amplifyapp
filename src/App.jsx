@@ -18,21 +18,21 @@ const [custodies, setCustodies] = useState([]);
 
 const [time, setTime] = useState(new Date())
 
-    
-
 
 useEffect(() => {
 
-    var last = (new Date()).getTime();
+  var last = (new Date()).getTime();
 
     setInterval(function(){
         var current = (new Date()).getTime();
-        if (current-last > 3000) {
+        if (current - last > 5000) {
             console.log('power was suspended');
         }
+        //console.log(current - last)
         last = current;
+        
 
-    }, 1000);
+    }, 1000); 
 
   const customonUpdateCustody = /* GraphQL */ `
   subscription OnUpdateCustody {
@@ -65,6 +65,7 @@ useEffect(() => {
       },
       error: err => {
          console.log('error in subscription', err);
+         window.location.reload(false);
          //this.state.subscription.unsubscribe(); //just for safe side
          //subscribeCustodies(); //reconnect to subscription - endless loop, DO NOT DO
 }
