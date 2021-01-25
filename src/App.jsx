@@ -6,7 +6,7 @@ import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import { listCustodys } from './graphql/queries';
 import * as subscriptions from './graphql/subscriptions';
 
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import Amplify, { API, graphqlOperation, Auth, Storage } from 'aws-amplify';
 
 import { Paper, IconButton } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
@@ -53,6 +53,16 @@ useEffect(() => {
         const custodyList = custodyData.data.listCustodys.items;
         console.log('custody list', custodyList);
         setCustodies(custodyList);
+
+
+        const user = await Auth.currentAuthenticatedUser();
+        console.log(user);
+
+        Storage.put('test.txt', 'Hello')
+          .then (result => console.log(result)) // {key: "test.txt"}
+          .catch(err => console.log(err));
+
+
     } catch (error) {
         console.log('error on fetching custodies', error);
     }
